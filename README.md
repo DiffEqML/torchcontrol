@@ -1,2 +1,2 @@
 # torchcontrol
-A PyTorch library for control applications of torchdyn models.
+A PyTorch library for all things nonlinear control and reinforcement learning.
