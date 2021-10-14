@@ -22,9 +22,9 @@ class IntegralCost(nn.Module):
         x: trajectories
         u: control inputs
         """
-        cost = self.P*torch.norm(x[-1] - self.x_star, p=2, dim=-1).mean()
-        cost += self.Q*torch.norm(x - self.x_star, p=2, dim=-1).mean()
-        cost += self.R*torch.norm(u - self.u_star, p=2, dim=-1).mean()
+        cost = torch.norm(self.P*(x[-1] - self.x_star), p=2, dim=-1).mean()
+        cost += torch.norm(self.Q*(x - self.x_star), p=2, dim=-1).mean()
+        cost += torch.norm(self.R*(u - self.u_star), p=2, dim=-1).mean()
         return cost
 
     
